@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-proxychains -q ./gallery-dl "$@"
+cd "$(dirname "$0")"
+mkdir -p log
+proxychains -q ./gallery-dl "$@" >> log/proxychains.log 2>&1

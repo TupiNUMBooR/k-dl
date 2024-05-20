@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-docker-compose run --rm gallery-dl "$@"
+cd "$(dirname "$0")"
+mkdir -p log
+docker-compose run --rm gallery-dl "$@" >> log/gallery-dl.log 2>&1
 #  --ugoira webm
