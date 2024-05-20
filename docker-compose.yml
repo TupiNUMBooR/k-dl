@@ -1,0 +1,12 @@
+services:
+  gallery-dl:
+    image: mikf123/gallery-dl
+#    image: ghcr.io/mikf/gallery-dl
+    container_name: gallery-dl
+    user: 1000:1000
+#    entrypoint: sh
+    volumes:
+      - ./download:/gallery-dl/
+      - ./gallery-dl.conf:/etc/gallery-dl.conf
+#      - ./cache.sqlite3:/root/.cache/gallery-dl/cache.sqlite3 # root
+      - ./cache:/.cache/gallery-dl/ # user, for folder permissions
